@@ -161,8 +161,214 @@ Correct -
     versioningScheme: byEnvVar
     versionEnvVar: <VersionVariableName>
 ```
+-----------------------------------------------------------
+1. What is an example of a technique used by advanced Software Composition Analysis tools on open source components?
 
+- Incorrect -Running dynamic code analysis tests to ensure that your code is following all rules for both maintenance and security
+- Incorrect -Running dynamic code analysis tests that execute penetration tests on your local machine
+- Incorrect -Cross referencing every function and variable in your code with your organizational policies
+- Correct -Cross-referencing every open source component found in your code with your organizational policies and failing a build when violation happens
 
+2. When designing and deploying software, how would you classify CVE, CWE, and CVSS?
 
+- Incorrect -Systems that improve software development speed in complex environments
+- Correct -Measurement and risk mitigation efforts focused on realizing software assurance
+- Incorrect -Management and tracking efforts focused on realizing network monitoring
+- Incorrect -Systems that allow for continuous integration of code
+
+3. You deployed an open source component into your development environment and would like to ensure it aligns with your company policies. After implementing Software Composition Analysis tools, you want to run more measures to meet security requirements. What can you implement to accomplish this?
+
+- Incorrect -Integration testing
+- Correct -Static code analysis
+- Incorrect -Dynamic code analysis
+- Incorrect -Integration analysis
+
+4. How would you avoid duplicates when automatically pushing NuGet packages in each release?
+
+- Incorrect -Perform an automatic delete to all packages before the new release is deployed.
+- Incorrect -On NuGet Push, remove duplicates.
+- Correct -On NuGet Push, allow duplicates to be skipped.
+- Incorrect -After deployment, manually review and remove duplicates.
+
+. How would your NuGet package sources be configured for your feed to provide deterministic restore?
+```
+Incorrect -
+"<pSources>
+  <add name=""FabrikamFiber"" value=""https://pkgs.dev.azure.com/fabrikam/_packaging/FabrikamFiber/nuget/v3/index.json"" />
+</pSources>"
+
+Incorrect -
+<packageSources>
+  <add key="FabrikamFiber" name="https://pkgs.dev.azure.com/fabrikam/_packaging/FabrikamFiber/nuget/v3/index.json" />
+</packageSources>
+
+Incorrect -
+<pSources>
+  <clear />
+  <add name="FabrikamFiber" value="https://pkgs.dev.azure.com/fabrikam/_packaging/FabrikamFiber/nuget/v3/index.json" />
+</pSources>
+
+Correct -
+<packageSources>
+  <clear />
+  <add key="FabrikamFiber" value="https://pkgs.dev.azure.com/fabrikam/_packaging/FabrikamFiber/nuget/v3/index.json" />
+</packageSources>
+```
+6. How would you configure publishing for NPM packages to Azure Artifacts feed?
+```
+Incorrect -
+- task: Npm
+  inputs:
+    command: publish
+    publishRegistry: useNpmFeed
+    publishFeed: feedName
+
+Correct -
+- task: Npm@1
+  inputs:
+    command: publish
+    publishRegistry: useFeed
+    publishFeed: feedName
+
+Incorrect -
+- task: Npm@1
+  inputs:
+    command: deploy
+    publishRegistry: useArtifactsFeed
+    publishFeed: feedName
+
+Incorrect -
+- task: Npm
+  inputs:
+    command: deploy
+    publishRegistry: useNpmFeed
+    publishFeed: feedName
+```
+
+7. What would you do to make sure data is maintained within packages?
+
+- Correct -Use package repositories to maintain a database of the key application metadata containing name, description, maintainer, dependencies and version information.
+- Incorrect -Use a relational database to maintain data through each deployed package settings file which is saved in version control.
+- Incorrect -User version control to maintain a database of the key package files containing configuration, description, settings and version information.
+- Incorrect -Use local storage to maintain a data log for each package version saved in the release storage containing name, description, dependencies and version information.
+
+8. You work for a private mobile application development company and need to find an open source software license for a new application. After implementing a Copyleft license, you are accused of violating company policy and negatively affecting the business's competitive advantage. What is the most likely explanation for this?
+
+- Incorrect -Copyleft allows you to do anything you want with code, but requires you to provide attribution to the author.
+- Incorrect -Copyleft allows you to incorporate your application into a closed software project that you do not provide the source to.
+- Correct -Copyleft would require your company to distribute modified and extended versions of your application to the public.
+- Incorrect -Copyleft has frequent vulnerabilities that, if accessed by hackers, could result in private information getting leaked.
+
+9. You have a Maven project and need to generate a Maven artifact on your local machine and assign it to a specific group. What would you do to implement this?
+```
+Incorrect -
+mvn -B archeOp:generate -DarchetypeGroupId="org.apache.npm.archetypes" -DgroupId="MyGroup" -DartifactId="myFirstApp"
+
+Incorrect -
+npm -B archeOp:generate -DarchetypeGroupId="org.apache.npm.maven.archetypes" -DgroupId="MyGroup" -DartifactId="myFirstApp"
+
+Incorrect -
+npm -B archetype:create -DarchetypeGroupId="org.apache.maven.archetypes" -DgroupId="MyGroup" -DartifactId="myFirstApp"
+
+Correct -
+mvn -B archetype:generate -DarchetypeGroupId="org.apache.maven.archetypes" -DgroupId="MyGroup" -DartifactId="myFirstApp"
+```
+
+10. What are the possible views for Azure DevOps Services feeds?
+
+- Incorrect -@dev, @prerelease, and @release
+- Incorrect -@local, @prerelease, and @production
+- Correct -@local, @prerelease, and @release.
+- Incorrect -@local, @predeploy, and @deploy
+
+11. What service scans the open source software components identified in an Azure Container Registry image?
+
+- Incorrect -Network Watcher
+- Correct -Black Duck
+- Incorrect -SoftNAS Cloud
+- Incorrect -NetApp
+
+12. What is the concern with sharing components' binaries using source control?
+
+- Incorrect -Binaries can result in inconsistent code between different machines.
+- Incorrect -Binaries can result in security risk in your repository.
+- Correct -Binaries can significantly increase the size of your repository.
+- Incorrect -Versioning is not allowed for binaries in source control.
+
+13. You have packages promoted to the @prerelease view then to the @release view, but you find out these packages are not found by any external teams. What would you do to fix this?
+
+- Incorrect -Make sure that the teams have visual studio professional edition installed.
+- Incorrect -Ensure that your @release view and @prerelease view are secure and risk free across the organization.
+- Correct -Ensure that your @release view and @prerelease view are visible across the organization.
+- Incorrect -Make sure that all external teams have permissions to access the organization's network.
+
+14. Where can you publish NPM packages produced by your build?
+
+- Incorrect -Azure Artifacts, VSTS Package service or Other registries such as https://registry.mavenjs.org/
+- Incorrect -Git Package Management service or Azure Artifacts
+- Incorrect -Azure Artifacts or other git repos
+- Correct -Azure Artifacts, TFS Package Management service or Other registries such as https://registry.npmjs.org/
+
+15. You are creating an open source browser and want to make sure that anyone whomakes changes to it must make them publicly available. What type of license can you implement into your project to accomplish this?
+
+- Incorrect -Attribution, as it allows other to distribute, remix, tweak, and build upon your work
+- Correct -Copyleft, as it gives people the right to freely distribute copies and modified versions of your work
+- Incorrect -Copyright, as it gives people the right to freely distribute copies and modified versions of your work
+- Incorrect -Alteration, as it allows others to distribute, remix, tweak, and build upon your work
+
+16. What is necessary to continue using Azure Artifacts after your trial expires?
+
+- Incorrect -Azure Artifacts trial extension or Visual Studio Professional subscription
+- Incorrect -Azure Artifacts license or Visual Studio Professional subscription
+- Correct -Azure Artifacts license or Visual Studio Enterprise subscription
+- Incorrect -Azure Artifacts trial extension or Visual Studio Community subscription
+
+17. What does the following code do?
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    publishVstsFeed: '<feedName>'
+    allowPackageConflicts: true
+  
+- Incorrect -It pushes a NuGet package to any type of source control
+- Correct -It publishes a NuGet package to an Azure Artifacts feed
+- Incorrect -It publishes a NuGet package to an external NuGet feed
+- Incorrect -It creates a NuGet package feed
+
+18. What is one main use for build artifacts?
+
+- Correct -To help store build outputs and intermediate files between build steps
+- Incorrect -To help store and build integration pipeline and validations steps
+- Incorrect -To help store build inputs and settings at the start of each build step
+- Incorrect -To help store build inputs and intermediate scripts between release steps
+
+19. You changed your builds to run at project scope but after this change you are receiving access errors to your feed. What would you do to fix this?
+
+- Incorrect -Create a new build identity with default permissions.
+- Incorrect -Reset project scope permissions to defaults.
+- Incorrect -Add the project-level build identity as an Owner.
+- Correct -Add the project-level build identity as a Reader or Contributor.
+
+20. You need to find an open source component that integrates well with your project. A major requirement is to find one that gives you full freedom to use it commercially. What open source software license would meet the requirement?
+
+- Incorrect -Attribution License
+- Correct -MIT License
+- Incorrect -Attribution-NonCommercial-NoDerivs License
+- Incorrect -Public Copyright License
+
+21. You got an instance of TFS disconnected from the internet but you were unable to purchase licenses from the marketplace and have no intention of getting this instance connected. How can you handle this?
+
+- Correct -Assign licenses purchased through an enterprise agreement.
+- Incorrect -Make sure all your TFS instances are always connected to the internet.
+- Incorrect -Assign licenses purchased through setting up an unlimited license policy.
+- Incorrect -Make sure all your TFS instances are always disconnected to the internet.
+
+22. Why should one be wary with licenses in open source software?
+
+- Incorrect -They could contain malware inside that may corrupt your projects.
+- Incorrect -They may not integrate well with your code and potentially delete code fragments.
+- Correct -They could come with unusual restrictions that may negatively affect your organization.
+- Incorrect -They could contain vulnerabilities that will give hackers a gateway to your software.
 
 

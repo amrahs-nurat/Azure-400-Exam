@@ -371,4 +371,68 @@ mvn -B archetype:generate -DarchetypeGroupId="org.apache.maven.archetypes" -Dgro
 - Correct -They could come with unusual restrictions that may negatively affect your organization.
 - Incorrect -They could contain vulnerabilities that will give hackers a gateway to your software.
 
+---------------------------------------------------------------------
+
+1. What is one benefit of a personal access token?
+
+- Correct -It authenticates other services with Azure DevOps Services
+- Incorrect -It validates a pipeline's access to a production environment
+- Incorrect -It authenticates APIs with Azure DevOps pipelines
+- Incorrect -It enables communication between Azure DevOps Services
+
+2. What is the .artifactignore file responsible for?
+
+- Incorrect -It controls what files are uploaded when you publish a NuGet Package.
+- Incorrect -It controls package dependencies to ignore when you publish either NuGet package or a Pipeline Artifact.
+- Correct -It controls what files are uploaded when you publish either a Universal Package or a Pipeline Artifact.
+- Incorrect -It controls package dependencies to ignore when you publish either NuGet or npm package.
+
+3. What is one challenge of package composition?
+
+- Correct -Diamond dependencies
+- Incorrect -Multiple team collaboration conflict
+- Incorrect -Two-way dependencies
+- Incorrect -Infinite conflict
+
+4. How can you publish your packages to an external Universal Packages feed?
+
+- Correct -Create a service connection to point to that feed, then fill in the feed URL and a personal access token to connect them.
+- Incorrect -In the .yml file, set Enable external Universal Packages to true, then all packages will be published to that feed automatically.
+- Incorrect -Create a personal access token connection to that feed, then publish all the packages directly to the external Universal Packages feed.
+- Incorrect -Publish the package to an Azure Artifacts feed, then set the Project Collection Build Service identity to be a Contributor on the feed.
+
+5. In which environment does Azure Artifacts comes pre-installed?
+
+- Incorrect -TFS 2016, 2017, and 2018
+- Correct -Azure DevOps Server 2019
+- Incorrect -TFS 2016, 2017, 2018, and 2019
+- Incorrect -Azure DevOps Server 2018 and 2019
+
+6. What would you do if you were unsure whether you needed more than five Azure Artifact's licenses to your organization?
+
+- Correct -Start a free trial. Every user will be granted access until the end of the trial period, which will revert licenses back to a limit of five.
+- Incorrect -Send a request to the support team to apply more free licenses to your organization with a limit of 500 users.
+- Incorrect -Start a free trial. Ten users will be granted access until the end of the trial period, which will revert licenses back to a limit of five.
+- Incorrect -Purchase more licenses as backup without a limited number of users.
+
+7. You uploaded a package with version 2.0 to Azure DevOps service then realized you need a quick fix, so you upload it again under version 2.0. What is wrong with this approach?
+
+- Incorrect -The immutability constraint won't allow any uploaded packages to be edited or changed even if the package version is new.
+- Incorrect -The immutability constraint won't allow uploading a newer revision package with the same version number, as it only allows deleting it and uploading a new package of the same version.
+- Correct -The immutability constraint won't allow uploading a newer revision package with the same version number, or delete it and upload a new package of the same version.
+- Incorrect -The immutability constraint will require mandatory delete for all previous versions before uploading the updated package.
+
+8. What would you do to prevent sources from overriding well-known packages with altered or incompatible versions?
+
+- Incorrect -Permanently delete all incompatible versions.
+- Incorrect -Place any public upstreams last in your resolution order.
+- Correct -Place any public upstreams first in your resolution order.
+- Incorrect -Delete all incompatible versions from your resolution order.
+
+9. What is true of project team permissions?
+
+- Incorrect -Your project team is assigned to collaborator permission by default.
+- Incorrect -Your project team cannot have permissions unless an access policy is created for the package feeds.
+- Correct -Your project team is assigned to reader permission by default.
+- Incorrect -Your project team has no permissions by default and needs to be set after creation.
 
